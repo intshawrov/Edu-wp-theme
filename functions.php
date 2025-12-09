@@ -26,3 +26,10 @@ function mentor_theme_files(){
       wp_enqueue_script( 'swiper', get_template_directory_uri().'/assets/vendor/swiper/swiper-bundle.min.js', array(), '1.0.0', true );
       wp_enqueue_script( 'main', get_template_directory_uri().'/assets/js/main.js', array(), '1.0.0', true );
 }
+
+add_action( 'after_setup_theme', 'mentor_theme_setup' );
+
+function mentor_theme_setup(){
+      add_theme_support( 'title-tag' );
+      add_theme_support( 'post-thumbnails' );
+}
