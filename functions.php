@@ -30,6 +30,21 @@ function mentor_theme_files(){
 add_action( 'after_setup_theme', 'mentor_theme_setup' );
 
 function mentor_theme_setup(){
+
+      // Load Theme Text Domain
+      load_theme_textdomain( 'mentor', get_template_directory() . '/languages' );
+
+
+      // Adding Support for Automatic Title tag
       add_theme_support( 'title-tag' );
       add_theme_support( 'post-thumbnails' );
+
+
+      // Menu Register
+  	register_nav_menus(
+		array(
+			'menu-1' => esc_html__( 'Primary', 'mentor' ),
+		)
+	);
+
 }
