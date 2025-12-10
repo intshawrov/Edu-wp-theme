@@ -46,7 +46,7 @@
       <nav id="navmenu" class="navmenu">
 
         <?php wp_nav_menu( array(
-         'theme_location' => 'primary',
+         'theme_location' => 'menu-1',
           'menu-class' => ' navmenu',
           'container' => false, ) );
           ?>
@@ -58,3 +58,4 @@
 
     </div>
   </header>
+
