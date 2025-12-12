@@ -6,12 +6,12 @@
     <section id="hero" class="hero section dark-background">
 
               <?php
-          $args = array(
-            'post_type'      => 'slide',
-            'posts_per_page' => -1,
-            'orderby'        => 'menu_order',
-            'order'          => 'ASC',
-          );
+              $args = array(
+                'post_type'      => 'slide',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+             );
 
           $slides = get_posts($args);
 
