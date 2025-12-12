@@ -97,13 +97,25 @@ add_action( 'init', 'education_theme_custom_post' );
 function mentor_widgets_init() {
       register_sidebar(
             array(
-                  'name'          => esc_html__( 'Sidebar', 'mentor' ),
-                  'id'            => 'sidebar-1',
-                  'description'   => esc_html__( 'Add widgets here.', 'mentor' ),
-                  'before_widget' => '<section id="%1$s" class="widget %2$s">',
-                  'after_widget'  => '</section>',
-                  'before_title'  => '<h2 class="widget-title">',
-                  'after_title'   => '</h2>',
+                  'name'          => esc_html__( 'Footer One', 'mentor' ),
+                  'id'            => 'footer-1',
+                  'description'   => esc_html__( 'Add footer one widgets here.', 'mentor' ),
+                  'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+                  'after_widget'  => '</div>',
+                  'before_title'  => '<h4 class="widget-title">',
+                  'after_title'   => '</h4>',
+            )
+            );
+
+             register_sidebar(
+            array(
+                  'name'          => esc_html__( 'Footer Two', 'mentor' ),
+                  'id'            => 'footer-2',
+                  'description'   => esc_html__( 'Add footer two widgets here.', 'mentor' ),
+                  'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+                  'after_widget'  => '</div>',
+                  'before_title'  => '<h4 class="widget-title">',
+                  'after_title'   => '</h4>',
             )
             );
 }
