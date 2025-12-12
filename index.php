@@ -5,15 +5,42 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+              <?php
+          $args = array(
+            'post_type'      => 'slide',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+          );
+
+          $slides = get_posts($args);
+
+          if ($slides) :
+            foreach ($slides as $post) :
+              setup_postdata($post);
+          ?>
+
+          <?php $btn_link = get_post_meta(get_the_ID(), 'btn_link', true);
+          $btn_text = get_post_meta(get_the_ID(), 'btn_text', true);
+          ?>
+
+          <?php if (has_post_thumbnail()): ?>
+      <img src="<?php the_post_thumbnail_url('large'); ?>" alt="" data-aos="fade-in">
+        <?php endif; ?>
 
       <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
-        <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
+        <h2 data-aos="fade-up" data-aos-delay="100"><?php the_title(); ?></h2>
+        <p data-aos="fade-up" data-aos-delay="200"><?php the_content(); ?></p>
         <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-          <a href="courses.html" class="btn-get-started">Get Started</a>
+          <a href="<?php echo esc_url($btn_link); ?>" class="btn-get-started"><?php echo esc_html( $btn_text ? $btn_text : '' ); ?></a>
         </div>
       </div>
+
+            <?php
+              endforeach;
+              wp_reset_postdata();
+            endif;
+            ?>
 
     </section><!-- /Hero Section -->
 
