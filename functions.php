@@ -37,6 +37,8 @@ function mentor_theme_setup(){
 
       // Adding Support for Automatic Title tag
       add_theme_support( 'title-tag' );
+
+      //Enable Support for Post Thumbnails
       add_theme_support( 'post-thumbnails' );
 
 
@@ -46,5 +48,27 @@ function mentor_theme_setup(){
 			'menu-1' => esc_html__( 'Primary', 'mentor' ),
 		)
 	);
+
+      add_theme_support(
+        'html5',
+        array(
+          'search-form',
+          'comment-form',
+          'comment-list',
+          'gallery',
+          'caption',
+        )
+      );
+
+      // Custom logo support
+      add_theme_support(
+            'custom-logo',
+            array(
+                  'height' => 250,
+                  'width' => 250,
+                  'flex-width' => true,
+                  'flex-height' => true,
+            )
+      )
 
 }

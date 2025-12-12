@@ -50,6 +50,7 @@
           'menu-class' => ' navmenu',
           'container' => false, ) );
           ?>
+
        
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
