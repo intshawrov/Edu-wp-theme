@@ -17,6 +17,8 @@
         </div>
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
+
+        <?php dynamic_sidebar('footer-4'); ?> 
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
           <form action="forms/newsletter.php" method="post" class="php-email-form">

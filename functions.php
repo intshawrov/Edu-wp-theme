@@ -130,6 +130,18 @@ function mentor_widgets_init() {
                   'after_title'   => '</h4>',
             )
             );
+
+            register_sidebar(
+            array(
+                  'name'          => esc_html__( 'Footer Four', 'mentor' ),
+                  'id'            => 'footer-4',
+                  'description'   => esc_html__( 'Add footer four widgets here.', 'mentor' ),
+                  'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+                  'after_widget'  => '</div>',
+                  'before_title'  => '<h4 class="widget-title">',
+                  'after_title'   => '</h4>',
+            )
+            );
 }
 
 add_action( 'widgets_init', 'mentor_widgets_init' );
