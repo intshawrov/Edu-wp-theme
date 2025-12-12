@@ -17,7 +17,7 @@
       <nav class="breadcrumbs">
         <div class="container">
             <ol>
-            <li><a href="<?php echo site_url(); ?>">Home</a></li>
+            <li><a href="<?php echo site_url(); ?>">Home<?php the_title(); ?></a></li>
             <li class="current"><?php  the_title(); ?><br></li>
           </ol>
           
