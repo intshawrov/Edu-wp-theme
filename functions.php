@@ -69,6 +69,26 @@ function mentor_theme_setup(){
                   'flex-width' => true,
                   'flex-height' => true,
             )
-      )
+            );
 
 }
+
+// Register Custom Post Type
+function education_theme_custom_post() {
+    register_post_type(
+        'Slide',
+        array(
+            'labels' => array(
+                'name'          => esc_html__( 'Slides', 'mentor' ),
+                'singular_name' => esc_html__( 'Slide', 'mentor' ),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
+        )
+    );
+}
+
+add_action( 'init', 'education_theme_custom_post' );
+
+
