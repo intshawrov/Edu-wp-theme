@@ -107,11 +107,23 @@ function mentor_widgets_init() {
             )
             );
 
-             register_sidebar(
+            register_sidebar(
             array(
                   'name'          => esc_html__( 'Footer Two', 'mentor' ),
                   'id'            => 'footer-2',
                   'description'   => esc_html__( 'Add footer two widgets here.', 'mentor' ),
+                  'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+                  'after_widget'  => '</div>',
+                  'before_title'  => '<h4 class="widget-title">',
+                  'after_title'   => '</h4>',
+            )
+            );
+
+            register_sidebar(
+            array(
+                  'name'          => esc_html__( 'Footer Three', 'mentor' ),
+                  'id'            => 'footer-3',
+                  'description'   => esc_html__( 'Add footer three widgets here.', 'mentor' ),
                   'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
                   'after_widget'  => '</div>',
                   'before_title'  => '<h4 class="widget-title">',
