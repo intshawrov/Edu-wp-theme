@@ -3,3 +3,65 @@
       License: https://bootstrapmade.com/license/
 
 */
+
+/* CF7 sometimes adds extra wrappers */
+.newsletter-form,
+.newsletter-form p,
+.newsletter-form .wpcf7-form-control-wrap{
+  display:flex !important;
+  align-items:center !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* main pill */
+.newsletter-form{
+  flex-wrap:nowrap !important;
+  gap:12px;
+  padding:8px 10px;
+  border:2px solid #49c26b;
+  border-radius:999px;
+  background:#fff;
+  max-width:520px;   
+}
+
+/* make input stay in same line */
+.newsletter-form .wpcf7-form-control-wrap{
+  flex:1 !important;
+  width:100% !important;
+}
+
+.newsletter-form input[type="email"].newsletter-input{
+  width:100% !important;
+  border:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  padding:12px 14px;
+  border-radius:999px;
+}
+
+/* button */
+.newsletter-form input[type="submit"].newsletter-btn{
+  width:auto !important;
+  border:0 !important;
+  padding:12px 22px;
+  border-radius:999px;
+  background:#49c26b;
+  color:#fff;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+/* remove CF7 default bottom spacing */
+.wpcf7 form p{ margin:0 !important; }
+
+.footer .footer-newsletter .newsletter-form input[type=submit] {
+
+  padding: 10px 20px 10px 20px;
+  margin: -7px -73px -7px 0;
+
+}
+
+.newsletter-form {
+    height: 46px;
+}
