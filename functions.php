@@ -145,3 +145,4 @@ function mentor_widgets_init() {
 }
 
 add_action( 'widgets_init', 'mentor_widgets_init' );
+
