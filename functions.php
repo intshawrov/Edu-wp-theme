@@ -87,6 +87,18 @@ function education_theme_custom_post() {
             'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
         )
     );
+    register_post_type(
+        'Field',
+        array(
+            'labels' => array(
+                'name'          => esc_html__( 'Fields', 'mentor' ),
+                'singular_name' => esc_html__( 'Field', 'mentor' ),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
+        )
+    );
 }
 
 add_action( 'init', 'education_theme_custom_post' );
