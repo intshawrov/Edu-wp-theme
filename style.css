@@ -70,3 +70,8 @@
 form.wpcf7-form.init {
     margin-top: 30px;
 }
+
+.site-logo{
+  width: 100px;
+  height: 100px;  
+}

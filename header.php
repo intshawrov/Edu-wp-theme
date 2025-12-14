@@ -37,7 +37,10 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo01.png" alt="">
+        <img class="site-logo"
+     src="<?php echo get_template_directory_uri(); ?>/assets/img/logo01.png"
+     alt="">
+
         <h1 class="sitename">Success Line</h1>
       </a>
 
