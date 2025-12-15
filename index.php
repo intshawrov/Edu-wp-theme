@@ -153,60 +153,83 @@ $trainers = get_option('site_trainers', 0);
 <!-- /Counts Section -->
 
     <!-- Why Us Section -->
+
+
+
+    <?php
+$whyus_title = get_option('whyus_title', 'Why Choose Our Products?');
+$whyus_desc  = get_option('whyus_desc', '');
+$btn_text    = get_option('whyus_btn_text', 'Learn More');
+$btn_link    = get_option('whyus_btn_link', '#');
+
+$i1 = get_option('whyus_1_icon', 'bi bi-clipboard-data');
+$t1 = get_option('whyus_1_title', '');
+$d1 = get_option('whyus_1_desc', '');
+
+$i2 = get_option('whyus_2_icon', 'bi bi-gem');
+$t2 = get_option('whyus_2_title', '');
+$d2 = get_option('whyus_2_desc', '');
+
+$i3 = get_option('whyus_3_icon', 'bi bi-inboxes');
+$t3 = get_option('whyus_3_title', '');
+$d3 = get_option('whyus_3_desc', '');
+?>
+
+
+
+
+
     <section id="why-us" class="section why-us">
+  <div class="container">
+    <div class="row gy-4">
 
-      <div class="container">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-box">
+          <h3><?php echo esc_html($whyus_title); ?></h3>
+          <p><?php echo nl2br(esc_html($whyus_desc)); ?></p>
+          <div class="text-center">
+            <a href="<?php echo esc_url($btn_link); ?>" class="more-btn">
+              <span><?php echo esc_html($btn_text); ?></span>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
-        <div class="row gy-4">
+      <div class="col-lg-8 d-flex align-items-stretch">
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-box">
-              <h3>Why Choose Our Products?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
-              </div>
+          <div class="col-xl-4">
+            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+              <i class="<?php echo esc_attr($i1); ?>"></i>
+              <h4><?php echo esc_html($t1); ?></h4>
+              <p><?php echo esc_html($d1); ?></p>
             </div>
-          </div><!-- End Why Box -->
+          </div>
 
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+              <i class="<?php echo esc_attr($i2); ?>"></i>
+              <h4><?php echo esc_html($t2); ?></h4>
+              <p><?php echo esc_html($d2); ?></p>
+            </div>
+          </div>
 
-              <div class="col-xl-4">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-gem"></i>
-                  <h4>Ullamco laboris ladore pan</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-inboxes"></i>
-                  <h4>Labore consequatur incidid dolore</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                </div>
-              </div><!-- End Icon Box -->
-
+          <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+              <i class="<?php echo esc_attr($i3); ?>"></i>
+              <h4><?php echo esc_html($t3); ?></h4>
+              <p><?php echo esc_html($d3); ?></p>
             </div>
           </div>
 
         </div>
-
       </div>
 
-    </section><!-- /Why Us Section -->
+    </div>
+  </div>
+</section>
+<!-- /Why Us Section -->
 
     <!-- Features Section -->
     <section id="features" class="features section">

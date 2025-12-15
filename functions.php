@@ -212,4 +212,97 @@ function orchid_site_stats_page_html() {
   echo '</div>';
 }
 
+// why choose us 
+
+add_action('admin_menu', function () {
+  add_menu_page(
+    'Why Us',
+    'Why Us',
+    'manage_options',
+    'why-us',
+    'why_us_admin_page',
+    'dashicons-info-outline',
+    62
+  );
+});
+
+function why_us_admin_page() {
+  if (!current_user_can('manage_options')) return;
+
+  if (isset($_POST['whyus_save'])) {
+    check_admin_referer('whyus_nonce_action', 'whyus_nonce');
+
+    update_option('whyus_title', sanitize_text_field($_POST['whyus_title'] ?? ''));
+    update_option('whyus_desc', sanitize_textarea_field($_POST['whyus_desc'] ?? ''));
+    update_option('whyus_btn_text', sanitize_text_field($_POST['whyus_btn_text'] ?? ''));
+    update_option('whyus_btn_link', esc_url_raw($_POST['whyus_btn_link'] ?? ''));
+
+    update_option('whyus_1_icon', sanitize_text_field($_POST['whyus_1_icon'] ?? ''));
+    update_option('whyus_1_title', sanitize_text_field($_POST['whyus_1_title'] ?? ''));
+    update_option('whyus_1_desc', sanitize_textarea_field($_POST['whyus_1_desc'] ?? ''));
+
+    update_option('whyus_2_icon', sanitize_text_field($_POST['whyus_2_icon'] ?? ''));
+    update_option('whyus_2_title', sanitize_text_field($_POST['whyus_2_title'] ?? ''));
+    update_option('whyus_2_desc', sanitize_textarea_field($_POST['whyus_2_desc'] ?? ''));
+
+    update_option('whyus_3_icon', sanitize_text_field($_POST['whyus_3_icon'] ?? ''));
+    update_option('whyus_3_title', sanitize_text_field($_POST['whyus_3_title'] ?? ''));
+    update_option('whyus_3_desc', sanitize_textarea_field($_POST['whyus_3_desc'] ?? ''));
+
+    echo '<div class="notice notice-success is-dismissible"><p>Saved!</p></div>';
+  }
+
+  $whyus_title = get_option('whyus_title', 'Why Choose Our Products?');
+  $whyus_desc  = get_option('whyus_desc', '');
+  $btn_text    = get_option('whyus_btn_text', 'Learn More');
+  $btn_link    = get_option('whyus_btn_link', '#');
+
+  $i1 = get_option('whyus_1_icon', 'bi bi-clipboard-data');
+  $t1 = get_option('whyus_1_title', '');
+  $d1 = get_option('whyus_1_desc', '');
+
+  $i2 = get_option('whyus_2_icon', 'bi bi-gem');
+  $t2 = get_option('whyus_2_title', '');
+  $d2 = get_option('whyus_2_desc', '');
+
+  $i3 = get_option('whyus_3_icon', 'bi bi-inboxes');
+  $t3 = get_option('whyus_3_title', '');
+  $d3 = get_option('whyus_3_desc', '');
+  ?>
+
+  <div class="wrap">
+    <h1>Why Us Section</h1>
+
+    <form method="post">
+      <?php wp_nonce_field('whyus_nonce_action', 'whyus_nonce'); ?>
+
+      <h3>Left Box</h3>
+      <p><input style="width:100%" type="text" name="whyus_title" value="<?php echo esc_attr($whyus_title); ?>" placeholder="Title"></p>
+      <p><textarea style="width:100%" rows="5" name="whyus_desc" placeholder="Description"><?php echo esc_textarea($whyus_desc); ?></textarea></p>
+      <p><input style="width:49%" type="text" name="whyus_btn_text" value="<?php echo esc_attr($btn_text); ?>" placeholder="Button Text">
+         <input style="width:49%" type="url" name="whyus_btn_link" value="<?php echo esc_attr($btn_link); ?>" placeholder="Button Link"></p>
+
+      <hr>
+      <h3>Icon Box 1</h3>
+      <p><input style="width:32%" type="text" name="whyus_1_icon" value="<?php echo esc_attr($i1); ?>" placeholder="Icon class e.g. bi bi-clipboard-data">
+         <input style="width:66%" type="text" name="whyus_1_title" value="<?php echo esc_attr($t1); ?>" placeholder="Title"></p>
+      <p><textarea style="width:100%" rows="3" name="whyus_1_desc" placeholder="Description"><?php echo esc_textarea($d1); ?></textarea></p>
+
+      <h3>Icon Box 2</h3>
+      <p><input style="width:32%" type="text" name="whyus_2_icon" value="<?php echo esc_attr($i2); ?>" placeholder="Icon class">
+         <input style="width:66%" type="text" name="whyus_2_title" value="<?php echo esc_attr($t2); ?>" placeholder="Title"></p>
+      <p><textarea style="width:100%" rows="3" name="whyus_2_desc" placeholder="Description"><?php echo esc_textarea($d2); ?></textarea></p>
+
+      <h3>Icon Box 3</h3>
+      <p><input style="width:32%" type="text" name="whyus_3_icon" value="<?php echo esc_attr($i3); ?>" placeholder="Icon class">
+         <input style="width:66%" type="text" name="whyus_3_title" value="<?php echo esc_attr($t3); ?>" placeholder="Title"></p>
+      <p><textarea style="width:100%" rows="3" name="whyus_3_desc" placeholder="Description"><?php echo esc_textarea($d3); ?></textarea></p>
+
+      <p><button class="button button-primary" type="submit" name="whyus_save">Save</button></p>
+    </form>
+  </div>
+  <?php
+}
+
+
 
