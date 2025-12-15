@@ -91,8 +91,8 @@ function education_theme_custom_post() {
         'Field',
         array(
             'labels' => array(
-                'name'          => esc_html__( 'Fields', 'mentor' ),
-                'singular_name' => esc_html__( 'Field', 'mentor' ),
+                'name'          => esc_html__( 'Abouts', 'mentor' ),
+                'singular_name' => esc_html__( 'About', 'mentor' ),
             ),
             'public'      => true,
             'has_archive' => true,
