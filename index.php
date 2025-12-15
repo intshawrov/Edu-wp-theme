@@ -105,45 +105,69 @@
     
 
     <!-- Counts Section -->
-    <section id="counts" class="section counts light-background">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+     <?php
+include "db.php";
 
-        <div class="row gy-4">
+// site_stats table থেকে ১টা row নিবে
+$data = $conn->query("SELECT * FROM site_stats LIMIT 1")->fetch_assoc();
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Students</p>
-            </div>
-          </div><!-- End Stats Item -->
+// যদি table empty থাকে, error avoid করার জন্য default 0
+$students = $data['students'] ?? 0;
+$courses  = $data['courses']  ?? 0;
+$events   = $data['events']   ?? 0;
+$trainers = $data['trainers'] ?? 0;
+?>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Courses</p>
-            </div>
-          </div><!-- End Stats Item -->
+<section id="counts" class="section counts light-background">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Events</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Trainers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0"
+                data-purecounter-end="<?= $students ?>"
+                data-purecounter-duration="1"
+                class="purecounter"></span>
+          <p>Students</p>
         </div>
-
       </div>
 
-    </section><!-- /Counts Section -->
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0"
+                data-purecounter-end="<?= $courses ?>"
+                data-purecounter-duration="1"
+                class="purecounter"></span>
+          <p>Courses</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0"
+                data-purecounter-end="<?= $events ?>"
+                data-purecounter-duration="1"
+                class="purecounter"></span>
+          <p>Events</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0"
+                data-purecounter-end="<?= $trainers ?>"
+                data-purecounter-duration="1"
+                class="purecounter"></span>
+          <p>Trainers</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- /Counts Section -->
 
     <!-- Why Us Section -->
     <section id="why-us" class="section why-us">
