@@ -45,6 +45,26 @@
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
+
+
+     <?php
+              $args = array(
+                'post_type'      => 'Field',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+             );
+
+          $slides = get_posts($args);
+
+          if ($slides) :
+            foreach ($slides as $post) :
+              setup_postdata($post);
+          ?>
+
+          <?php $btn_link = get_post_meta(get_the_ID(), 'btn_link', true);
+          $btn_text = get_post_meta(get_the_ID(), 'btn_text', true);
+          ?>
     <section id="about" class="about section">
 
       <div class="container">
