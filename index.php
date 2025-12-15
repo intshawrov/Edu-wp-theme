@@ -47,7 +47,9 @@
     <!-- About Section -->
 
 
-     <?php
+     
+    <section id="about" class="about section">
+      <?php
               $args = array(
                 'post_type'      => 'Field',
                 'posts_per_page' => -1,
@@ -65,35 +67,42 @@
           <?php $btn_link = get_post_meta(get_the_ID(), 'btn_link', true);
           $btn_text = get_post_meta(get_the_ID(), 'btn_text', true);
           ?>
-    <section id="about" class="about section">
+          
 
       <div class="container">
 
         <div class="row gy-4">
 
+        <?php if (has_post_thumbnail()): ?>
+
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="<?php the_post_thumbnail_url('large'); ?>" class="img-fluid" alt="">
           </div>
+          <?php endif; ?>
 
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
+            <h3><?php the_title(); ?></h3>
+            <p class="fst-italic"><?php the_content(); ?></p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
+              <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
+              <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
             </ul>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <a href="<?php echo esc_url($btn_link); ?>" class="read-more"><span><?php echo esc_html( $btn_text ? $btn_text : '' ); ?></span><i class="bi bi-arrow-right"></i></a>
           </div>
 
         </div>
 
       </div>
 
+      <?php
+              endforeach;
+              wp_reset_postdata();
+            endif;
+            ?>
+
     </section><!-- /About Section -->
+    
 
     <!-- Counts Section -->
     <section id="counts" class="section counts light-background">
