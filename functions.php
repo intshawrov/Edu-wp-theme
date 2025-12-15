@@ -162,8 +162,8 @@ add_action( 'widgets_init', 'mentor_widgets_init' );
 add_action('admin_menu', 'orchid_add_site_stats_menu');
 function orchid_add_site_stats_menu() {
   add_menu_page(
-    'Site Stats',
-    'Site Stats',
+    'Counters',
+    'Counters',
     'manage_options',
     'site-stats',
     'orchid_site_stats_page_html',
