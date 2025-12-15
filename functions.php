@@ -88,11 +88,23 @@ function education_theme_custom_post() {
         )
     );
     register_post_type(
-        'Field',
+        'About',
         array(
             'labels' => array(
                 'name'          => esc_html__( 'Abouts', 'mentor' ),
                 'singular_name' => esc_html__( 'About', 'mentor' ),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
+        )
+    );
+    register_post_type(
+        'Feature',
+        array(
+            'labels' => array(
+                'name'          => esc_html__( 'Features', 'mentor' ),
+                'singular_name' => esc_html__( 'Feature', 'mentor' ),
             ),
             'public'      => true,
             'has_archive' => true,
