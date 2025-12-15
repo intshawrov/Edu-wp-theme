@@ -107,16 +107,10 @@
     <!-- Counts Section -->
 
      <?php
-include "db.php";
-
-// site_stats table থেকে ১টা row নিবে
-$data = $conn->query("SELECT * FROM site_stats LIMIT 1")->fetch_assoc();
-
-// যদি table empty থাকে, error avoid করার জন্য default 0
-$students = $data['students'] ?? 0;
-$courses  = $data['courses']  ?? 0;
-$events   = $data['events']   ?? 0;
-$trainers = $data['trainers'] ?? 0;
+$students = get_option('site_students', 0);
+$courses  = get_option('site_courses', 0);
+$events   = get_option('site_events', 0);
+$trainers = get_option('site_trainers', 0);
 ?>
 
 <section id="counts" class="section counts light-background">
@@ -125,40 +119,28 @@ $trainers = $data['trainers'] ?? 0;
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0"
-                data-purecounter-end="<?= $students ?>"
-                data-purecounter-duration="1"
-                class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?php echo esc_attr($students); ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Students</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0"
-                data-purecounter-end="<?= $courses ?>"
-                data-purecounter-duration="1"
-                class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?php echo esc_attr($courses); ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Courses</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0"
-                data-purecounter-end="<?= $events ?>"
-                data-purecounter-duration="1"
-                class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?php echo esc_attr($events); ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Events</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0"
-                data-purecounter-end="<?= $trainers ?>"
-                data-purecounter-duration="1"
-                class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?php echo esc_attr($trainers); ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Trainers</p>
         </div>
       </div>
@@ -166,6 +148,7 @@ $trainers = $data['trainers'] ?? 0;
     </div>
   </div>
 </section>
+
 
 <!-- /Counts Section -->
 
