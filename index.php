@@ -83,11 +83,11 @@
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
             <h3><?php the_title(); ?></h3>
             <p class="fst-italic"><?php the_content(); ?></p>
-            <ul>
+            <!-- <ul>
               <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
               <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
               <li><i class="bi bi-check-circle"></i> <span><?php the_content(); ?></span></li>
-            </ul>
+            </ul> -->
             <a href="<?php echo esc_url($btn_link); ?>" class="read-more"><span><?php echo esc_html( $btn_text ? $btn_text : '' ); ?></span><i class="bi bi-arrow-right"></i></a>
           </div>
 
