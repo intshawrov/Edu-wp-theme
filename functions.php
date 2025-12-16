@@ -197,7 +197,7 @@ function orchid_site_stats_page_html() {
     update_option('site_students', intval($_POST['students'] ?? 0));
     update_option('site_courses',  intval($_POST['courses'] ?? 0));
     update_option('site_events',   intval($_POST['events'] ?? 0));
-    update_option('site_trainers', intval($_POST['trainers'] ?? 0));
+    update_option('site_trainers', intval($_POST['teachers'] ?? 0));
 
     echo '<div class="notice notice-success is-dismissible"><p>Stats saved!</p></div>';
   }
@@ -205,7 +205,7 @@ function orchid_site_stats_page_html() {
   $students = get_option('site_students', 0);
   $courses  = get_option('site_courses', 0);
   $events   = get_option('site_events', 0);
-  $trainers = get_option('site_trainers', 0);
+  $trainers = get_option('site_teachers', 0);
 
   echo '<div class="wrap">';
   echo '<h1>Site Stats</h1>';
@@ -216,7 +216,7 @@ function orchid_site_stats_page_html() {
   echo '<tr><th>Students</th><td><input type="number" name="students" value="'.esc_attr($students).'"></td></tr>';
   echo '<tr><th>Courses</th><td><input type="number" name="courses" value="'.esc_attr($courses).'"></td></tr>';
   echo '<tr><th>Events</th><td><input type="number" name="events" value="'.esc_attr($events).'"></td></tr>';
-  echo '<tr><th>Trainers</th><td><input type="number" name="trainers" value="'.esc_attr($trainers).'"></td></tr>';
+  echo '<tr><th>Trainers</th><td><input type="number" name="trainers" value="'.esc_attr($teachers).'"></td></tr>';
   echo '</table>';
 
   echo '<p><button class="button button-primary" type="submit" name="site_stats_save">Save</button></p>';
