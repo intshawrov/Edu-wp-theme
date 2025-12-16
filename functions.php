@@ -331,6 +331,3 @@ function why_us_admin_page() {
   </div>
   <?php
 }
-
-
-
