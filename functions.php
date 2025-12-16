@@ -38,6 +38,9 @@ function mentor_theme_setup(){
       // Adding Support for Automatic Title tag
       add_theme_support( 'title-tag' );
 
+      //Generate automatic feed links on head
+     add_theme_support('automatic-feed-links');
+
       //Enable Support for Post Thumbnails
       add_theme_support( 'post-thumbnails' );
 
