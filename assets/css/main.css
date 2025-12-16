@@ -246,7 +246,7 @@ h6 {
   margin: 0;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--accent-color);
+  color: red;
 }
 
 .header .btn-getstarted,
