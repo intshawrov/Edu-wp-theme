@@ -111,18 +111,22 @@ function education_theme_custom_post() {
             'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
         )
     );
-    register_post_type(
-        'Feature',
-        array(
-            'labels' => array(
-                'name'          => esc_html__( 'Features', 'mentor' ),
-                'singular_name' => esc_html__( 'Feature', 'mentor' ),
-            ),
-            'public'      => true,
-            'has_archive' => true,
-            'supports'    => array( 'title', 'editor','custom-fields',  'thumbnail' , 'page-attributes'),
-        )
-    );
+      register_post_type('course', array(
+      'label' => 'Courses',
+      'public' => true,
+      'has_archive' => true,
+      'show_in_rest' => true,
+      'menu_icon' => 'dashicons-welcome-learn-more',
+      'supports' => array('title','editor','excerpt','thumbnail','author','custom-fields'),
+      'rewrite' => array('slug' => 'courses'),
+    ));
+
+    register_taxonomy('course_cat', 'course', array(
+      'label' => 'Course Categories',
+      'hierarchical' => true,
+      'show_ui' => true,
+      'show_in_rest' => true,
+    ));
 }
 
 add_action( 'init', 'education_theme_custom_post' );
