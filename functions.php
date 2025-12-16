@@ -121,12 +121,7 @@ function education_theme_custom_post() {
       'rewrite' => array('slug' => 'courses'),
     ));
 
-    register_taxonomy('course_cat', 'course', array(
-      'label' => 'Course Categories',
-      'hierarchical' => true,
-      'show_ui' => true,
-      'show_in_rest' => true,
-    ));
+    
 }
 
 add_action( 'init', 'education_theme_custom_post' );
